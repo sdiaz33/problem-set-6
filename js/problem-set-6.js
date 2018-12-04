@@ -39,6 +39,16 @@ function sayHello() {
 
 function drawRectangle() {
 
+  const color = document.getElementById("output3");
+  const ctx = color.getContext("2d");
+
+  let width < 1;
+  let height < 1;
+  let xCoordinate < 5;
+  let yCoordinate < 5;
+  ctx.fillStyle = "green";
+  ctx.strokeRect();
+
 }
 
 /*
@@ -67,6 +77,12 @@ function drawRectangle() {
  */
 
 function drawColoredRectangle() {
+
+const color = document.getElementById("output3");
+const ctx = color.getContext("2d");
+
+ctx.fillStyle = "green";
+ctx.fillRect(10, 10, 150, 100);
 
 }
 
