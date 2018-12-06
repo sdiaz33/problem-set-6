@@ -12,6 +12,11 @@
 
 function sayHello() {
 
+  var ctx = document.getElementById('canvas1')
+  var ctx = hello.getContext('2d');
+  ctx.font = '48px serif';
+  ctx.strokeText('Hello, World!', 10, 50);
+
 }
 
 /*
@@ -39,15 +44,31 @@ function sayHello() {
 
 function drawRectangle() {
 
-  const color = document.getElementById("output3");
-  const ctx = color.getContext("2d");
+  var rectangle = document.getElementById('canvas2');
+  if (canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+    let heightInput = prompt("Height: ");
+    let widthInput = prompt("Width: ");
+    let xInput = prompt("X: ");
+    let yInput = prompt("Y: ");
+    ctx.strokeRect(xInput, yInput, heightInput, widthInput);
+  }
 
-  let width < 1;
-  let height < 1;
-  let xCoordinate < 5;
-  let yCoordinate < 5;
-  ctx.fillStyle = "green";
-  ctx.strokeRect();
+  if (heightInput<1) {
+    alert("Your height is too small.");
+  }
+
+  if (widthInput<1) {
+    alert("Your width is too small.");
+  }
+
+  if (xInput<5) {
+    alert("Your X is too small.");
+  }
+
+  if (yInput<5) {
+    alert("Your Y is too small.");
+  }
 
 }
 
@@ -78,12 +99,13 @@ function drawRectangle() {
 
 function drawColoredRectangle() {
 
-const color = document.getElementById("output3");
-const ctx = color.getContext("2d");
+  const color = document.getElementById("output3");
+  const ctx = color.getContext("2d");
 
-ctx.fillStyle = "green";
-ctx.fillRect(10, 10, 150, 100);
-
+  colorInput = prompt("Enter a color: ")
+  ctx.fillStyle = colorInput
+  ctx.strokeRect(10, 10, 150, 100);
+  ctx.fillRect(10, 10, 150, 100);
 }
 
 /*
