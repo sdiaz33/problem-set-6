@@ -12,10 +12,10 @@
 
 function sayHello() {
 
-  var ctx = document.getElementById('canvas1')
-  var ctx = hello.getContext('2d');
-  ctx.font = '48px serif';
-  ctx.strokeText('Hello, World!', 10, 50);
+  var context = document.getElementById('canvas1')
+  var context = canvas1.getContext('2d');
+  context.font = '48px sans-serif';
+  context.strokeText('Hello, World!', 10, 50);
 
 }
 
@@ -45,13 +45,14 @@ function sayHello() {
 function drawRectangle() {
 
   var rectangle = document.getElementById('canvas2');
-  if (canvas.getContext) {
-    var ctx = canvas.getContext('2d');
+  if (canvas2.getContext) {
+    var context = canvas2.getContext('2d');
     let heightInput = prompt("Height: ");
     let widthInput = prompt("Width: ");
     let xInput = prompt("X: ");
     let yInput = prompt("Y: ");
-    ctx.strokeRect(xInput, yInput, heightInput, widthInput);
+    context.clearRect(0, 0, rectangle.width, rectangle.height);
+    context.strokeRect(xInput, yInput, heightInput, widthInput);
   }
 
   if (heightInput<1) {
@@ -99,13 +100,22 @@ function drawRectangle() {
 
 function drawColoredRectangle() {
 
-  const color = document.getElementById("output3");
-  const ctx = color.getContext("2d");
+  let rectangleDrawing = document.getElementById('canvas3');
+  let context = rectangleDrawing.getContext("2d");
+  context.clearRect(0, 0, rectangleDrawing.width, rectangleDrawing.height);
 
-  colorInput = prompt("Enter a color: ")
-  ctx.fillStyle = colorInput
-  ctx.strokeRect(10, 10, 150, 100);
-  ctx.fillRect(10, 10, 150, 100);
+  let color;
+
+    color = prompt("Please enter a color");
+    if (color=="black" || color=="blue" || color=="green" || color=="orange" || color=="purple" || color=="red" || color=="yellow") {
+      context.fillStyle = color;
+      context.fillRect(10, 10, 100, 50);
+    } else {
+      window.alert('This is not a supported color.');
+      context.clearRect(0, 0, rectangleDrawing.width, rectangleDrawing.height);
+    }
+
+
 }
 
 /*
@@ -138,7 +148,15 @@ function drawColoredRectangle() {
  */
 
 function drawTriangle() {
+  var triangle = document.getElementById('canvas4');
+  if (canvas4.getContext) {
+    var context = canvas4.getContext('2d');
 
+    context.beginPath();
+    context.moveTo(75, 50);
+    context.lineTo(100, 75);
+    context.lineTo(100, 25);
+  }
 }
 
 /*
@@ -161,7 +179,21 @@ function drawTriangle() {
  */
 
 function drawSmileyFace() {
+  var smileyFace = document.getElementById('canvas5');
+  if (canvas5.getContext) {
+    var context = canvas5.getContext('2d');
 
+    smileyFace = prompt("Please enter a radius: ");
+    // ctx.beginPath();
+    ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+    ctx.moveTo(110, 75);
+    ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+    ctx.moveTo(65, 65);
+    ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+    ctx.moveTo(95, 65);
+    ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+    // ctx.stroke();
+  }
 }
 
 /*
