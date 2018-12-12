@@ -151,12 +151,37 @@ function drawTriangle() {
   var triangle = document.getElementById('canvas4');
   if (canvas4.getContext) {
     var context = canvas4.getContext('2d');
-
-    context.beginPath();
-    context.moveTo(75, 50);
-    context.lineTo(100, 75);
-    context.lineTo(100, 25);
   }
+
+  let draw = false
+  while(true) {
+    side1 = Number(prompt("Side 1: "));
+    side2 = Number(prompt("Side 2: "));
+    side3 = Number(prompt("Side 3: "));
+    if ((side1 * side2 * side2 == side3 * side3 /*.... more? */))
+      side1 > 0 && side2 > 0 && side3 > 0 &&
+      canvas4.width - 10 - side1 >= 0 && canvas4.height - 10 - side2 >= 0 && canvas4.height - 10 - side3 >= 0&& canvas4.height - 10
+        draw = true
+      }
+    else if (draw) {
+      ctx.beginPath();
+      ctx.moveTo(10, 10);
+      ctx.lineTo(10, 10 + side2);
+      ctx.lineTo(10 + side1, 10y);
+      ctx.lineTo(10, 10);
+      ctx.closePath();
+      ctx.stroke();
+    }
+    else if {
+      alert("That is not a valid triangle.");
+    }
+  }
+
+  if (draw) {
+    /*something idk*/
+  }
+
+
 }
 
 /*
