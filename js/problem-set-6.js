@@ -158,30 +158,24 @@ function drawTriangle() {
     side1 = Number(prompt("Side 1: "));
     side2 = Number(prompt("Side 2: "));
     side3 = Number(prompt("Side 3: "));
-    if ((side1 * side2 * side2 == side3 * side3 /*.... more? */))
-      side1 > 0 && side2 > 0 && side3 > 0 &&
-      canvas4.width - 10 - side1 >= 0 && canvas4.height - 10 - side2 >= 0 && canvas4.height - 10 - side3 >= 0&& canvas4.height - 10
+    if ((side1 * side1 + side2 * side2 == side3 * side3)) {
+      side1 > 0 && side2 > 0 && side3 > 0
+      canvas4.width - 10 - side1 >= 0 && canvas4.height - 10 - side2 >= 0 && canvas4.height - 10 - side3 >= 0 && canvas4.height - 10
         draw = true
-      }
-    else if (draw) {
-      ctx.beginPath();
+    }
+    if (true) {
+      ctx.beginPath(0, 0);
       ctx.moveTo(10, 10);
       ctx.lineTo(10, 10 + side2);
-      ctx.lineTo(10 + side1, 10y);
+      ctx.lineTo(10 + side1, 10);
       ctx.lineTo(10, 10);
       ctx.closePath();
       ctx.stroke();
     }
-    else if {
-      alert("That is not a valid triangle.");
+    else if (false) {
+      alert("This is not a valid triangle.");
     }
   }
-
-  if (draw) {
-    /*something idk*/
-  }
-
-
 }
 
 /*
@@ -208,8 +202,8 @@ function drawSmileyFace() {
   if (canvas5.getContext) {
     var context = canvas5.getContext('2d');
 
-    smileyFace = prompt("Please enter a radius: ");
-    // ctx.beginPath();
+    radius = prompt("Please enter a radius: ");
+    ctx.beginPath(0, 0);
     ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
     ctx.moveTo(110, 75);
     ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
