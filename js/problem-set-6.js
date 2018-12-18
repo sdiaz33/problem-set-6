@@ -155,16 +155,16 @@ function drawTriangle() {
   let side3;
 
   ctx.clearRect(0, 0, triangle.width, triangle.height);
- 
+
   while(true) {
     side1 = Number(prompt("Side 1: "));
     side2 = Number(prompt("Side 2: "));
     side3 = Number(prompt("Side 3: "));
     if ((side1 * side1) + (side2 * side2) == (side3 * side3)) {
-      && side1 > 0 && side2 > 0 && side3 > 0 &&
-      canvas4.width-10-side1 >= 0 && canvas4.height-10-side2 >= 0 && canvas4.height-10-side3 >= 0 
+      side1 > 0 && side2 > 0 && side3 > 0 &&
+      canvas4.width-10-side1 >= 0 && canvas4.height-10-side2 >= 0 && canvas4.height-10-side3 >= 0
         break;
-    } 
+    }
     else {
       alert("That is not a valid triangle.");
     }
@@ -183,7 +183,7 @@ function drawTriangle() {
   ctx.moveTo(10, 10);
   ctx.lineTo(10 + side2, 10 + side1);
   ctx.stroke();
-   
+
 }
 
 /*
@@ -208,7 +208,7 @@ function drawTriangle() {
 function drawSmileyFace() {
   const smileyFace = document.getElementById('canvas5');
   const ctx = smileyFace.getContext('2d');
-  
+
   let radius = 0;
 
   do{
@@ -227,7 +227,7 @@ function drawSmileyFace() {
   ctx.beginPath();
   ctx.arc(radius + 35, radius - 10, radius * 0.10, 0, Math.PI * 2);
   ctx.stroke();
-  
+
 }
 
 /*
@@ -283,9 +283,9 @@ function drawStar() {
     ctx.stroke();
     ctx.closePath();
   } else {
-    alert("Your Inputs are not Valid")
+    alert("Your outer radius mujst be larger than your inner radius")
   }
-  
+
 }
 
 /*
@@ -325,7 +325,7 @@ function drawStopSign() {
   ctx.font = "60px Arial";
   ctx.fillStyle = "white";
   ctx.fillText("STOP", 30, 130);
-  
+
 }
 
 /*
@@ -347,7 +347,7 @@ function drawStopSign() {
  */
 
 function drawPyramid() {
-  
+
   const pyramid = document.getElementById('canvas8');
   const ctx = pyramid.getContext('2d');
 
@@ -372,7 +372,7 @@ function drawPyramid() {
   }
   ctx.beginPath();
   ctx.closePath();
-  
+
 }
 
 /*
@@ -457,5 +457,5 @@ function drawHouse() {
     ctx.arc(545, 700, 6, 0, Math.PI*2);
     ctx.fill();
     ctx.closePath();
-  
+
 }
