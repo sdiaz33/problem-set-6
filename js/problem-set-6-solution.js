@@ -122,8 +122,8 @@ function drawTriangle() {                                                       
  * Smile. SOLUTION.
  */
 
-function drawSmileyFace() {
-  let c = document.getElementById("canvas4");                                       //sets variable c to be printed to the console
+function drawSmileyFace() {                                                        //declares drawSmileyFace function
+  let c = document.getElementById("canvas5");                                       //sets variable c to be printed to the console
   let ctx = c.getContext("2d");                                                     //sets it to be a drawing
   ctx.clearRect(0, 0, c.width, c.height);                                           //sets the shape of rectangle to be printed
 
@@ -158,43 +158,43 @@ function drawSmileyFace() {
  * Star. SOLUTION.
  */
 
-function drawStar() {
-  let c = document.getElementById("canvas6");
-  let ctx = c.getContext("2d");
-  ctx.clearRect(0, 0, c.width, c.height);
+function drawStar() {                                                                //declares drawStar function
+  let c = document.getElementById("canvas6");                                       //sets variable c to be printed to the console
+  let ctx = c.getContext("2d");                                                     //sets it to be a drawing
+  ctx.clearRect(0, 0, c.width, c.height);                                           //sets the shape of rectangle to be printed
+ 
+  let pts = 5;                                                                      //sets variable pts to 5
+  let x = 125;                                                                      //sets variable x to 125
+  let y = 125;                                                                      //sets variable y to 125
 
-  let pts = 5;
-  let x = 125;
-  let y = 125;
+  let outer = Number(prompt("Outer Radius: "));                                     //prompts user to enter a number for outer radius and sets input as variable outer
+  let inner = Number(prompt("Inner Radius: "));                                     //prompts user to enter a number for inner radius and sets input as variable inner
 
-  let outer = Number(prompt("Outer Radius: "));
-  let inner = Number(prompt("Inner Radius: "));
+  if (Number.isNaN(outer) || Number.isNaN(inner)) {                                 //sets an if statement for if the outer and inner inputs are not a number
+    alert("One of your inputs is not a number.");                                   //alerts that one of the inputs is not a number
+  } else if (outer < 2) {                                                           //otherwise if outer < 2 then...
+    alert("Your outer radius is too small.");                                       //alerts that the outer radius is too small
+  } else if (inner < 1) {                                                           //otherwise if inner < 1 then...
+    alert("Your inner radius is too small.");                                       //alerts that the inner radius is too small
+  } else if (outer <= inner) {                                                      //otherwise if outer <= inner then...
+    alert("Your outer radius must be larger than your inner radius.");              //alerts that the outer radius has to be larer than the inner radius
+  } else {                                                                          //otherwise...
+    ctx.beginPath();                                                                //starts path to make star
 
-  if (Number.isNaN(outer) || Number.isNaN(inner)) {
-    alert("One of your inputs is not a number.");
-  } else if (outer < 2) {
-    alert("Your outer radius is too small.");
-  } else if (inner < 1) {
-    alert("Your inner radius is too small.");
-  } else if (outer <= inner) {
-    alert("Your outer radius must be larger than your inner radius.");
-  } else {
-    ctx.beginPath();
+    for (let vtx = 0; vtx <= 2 * pts; vtx++) {                                      //does the following for whole star
+      let angle = vtx * Math.PI / pts - Math.PI / 2;                                //formula for thr star angles which is set as variable angle
 
-    for (let vtx = 0; vtx <= 2 * pts; vtx++) {
-      let angle = vtx * Math.PI / pts - Math.PI / 2;
-
-      let radius;
-      if (vtx % 2 == 0) {
-        radius = outer;
-      } else {
-        radius = inner;
+      let radius;                                                                   //calls radius
+      if (vtx % 2 == 0) {                                                           //if (vtx % 2 == 0)
+        radius = outer;                                                             //radius will be set to outer
+      } else {                                                                      //otherwise...
+        radius = inner;                                                             //radius will be set to inner
       }
 
-      ctx.lineTo(x + radius * Math.cos(angle), y + radius * Math.sin(angle));
+      ctx.lineTo(x + radius * Math.cos(angle), y + radius * Math.sin(angle));       //moves path to (x + radius * Math.cos(angle), y + radius * Math.sin(angle))
     }
 
-    ctx.closePath();
+    ctx.closePath();                                                                //closes path for star
     ctx.stroke();
   }
 }
@@ -203,71 +203,71 @@ function drawStar() {
  * Stop Sign. SOLUTION.
  */
 
-function drawStopSign() {
-  let c = document.getElementById("canvas7");
-  let ctx = c.getContext("2d");
-  ctx.clearRect(0, 0, c.width, c.height);
+function drawStopSign() {                                                           //declares drawStopSign function
+  let c = document.getElementById("canvas7");                                       //sets variable c to be printed to the console
+  let ctx = c.getContext("2d");                                                     //sets it to be a drawing
+  ctx.clearRect(0, 0, c.width, c.height);                                           //sets the shape of rectangle to be printed
 
-  let x = 10;
-  let y = 150;
-  let length = 80;
+  let x = 10;                                                                       //sets variable x to 10
+  let y = 150;                                                                      //sets variable y to 150
+  let length = 80;                                                                  //sets variable length to 80
 
-  ctx.beginPath();
+  ctx.beginPath();                                                                  //begins path to draw shape
 
-  ctx.moveTo(x, y);
-  y = y - length;
-  ctx.lineTo(x, y);
+  ctx.moveTo(x, y);                                                                 //starts path at (x,y)
+  y = y - length;                                                                   //y set to y - length
+  ctx.lineTo(x, y);                                                                 //line moves to (x,y)
 
-  let angle = 315.0;
-  for (let i = 0; i < 7; i++) {
-    x = x + length * Math.cos(Math.PI * angle / 180.0);
-    y = y + length * Math.sin(Math.PI * angle / 180.0);
-    ctx.lineTo(x, y);
+  let angle = 315.0;                                                                //angle variable set to 315
+  for (let i = 0; i < 7; i++) {                                                     //keeps doing next lines for all angles until shape is completed
+    x = x + length * Math.cos(Math.PI * angle / 180.0);                             //sets x to x + length * Math.cos(Math.PI * angle / 180.0)
+    y = y + length * Math.sin(Math.PI * angle / 180.0);                             //sets y to y + length * Math.sin(Math.PI * angle / 180.0)
+    ctx.lineTo(x, y);                                                               //line moves to (x,y)
 
-    angle = angle + 45.0;
-    if (angle > 359.0) {
-      angle = angle - 360.0;
+    angle = angle + 45.0;                                                           //angle is set to angle + 45
+    if (angle > 359.0) {                                                            //sets if statement for if angle>359 then...
+      angle = angle - 360.0;                                                        //angle will be set to anle-360
     }
   }
 
-  ctx.fillStyle = "red";
-  ctx.closePath();
-  ctx.fill();
+  ctx.fillStyle = "red";                                                          //fills shape wih red
+  ctx.closePath();                                                                //closes path to make shape
+  ctx.fill();                                                                     //fill with the color
 
-  ctx.fillStyle = "white";
-  ctx.font = "65px sans-serif";
-  ctx.fillText("STOP", 18, 135);
+  ctx.fillStyle = "white";                                                        //fills inner border with white
+  ctx.font = "65px sans-serif";                                                   //adds font '65px sans-serif" to text
+  ctx.fillText("STOP", 18, 135);                                                  //fills shape with text "STOP" and adds dimensions to the text
 }
 
 /*
  * Pyramid. SOLUTION.
  */
 
-function drawPyramid() {
-  let c = document.getElementById("canvas8");
-  let ctx = c.getContext("2d");
-  ctx.clearRect(0, 0, c.width, c.height);
+function drawPyramid() {                                                          //declares drawPyramid function
+  let c = document.getElementById("canvas8");                                     //sets variable c to be printed to the console
+  let ctx = c.getContext("2d");                                                   //sets it to be a drawing
+  ctx.clearRect(0, 0, c.width, c.height);                                         //sets the shape of rectangle to be printed
 
-  let length = Number(prompt("Length: "));
+  let length = Number(prompt("Length: "));                                        //prompts user to enter a number for length and sets input as variable length
 
-  if (Number.isNaN(length)) {
-    alert("Your input is not a number.");
-  } else if ((length * 5 + 10) > 1023 || (length * 5 + 10) > 511) {
-    alert("The pyramid will not fit on the canvas.");
-  } else {
-    let x = 10;
-    let y = c.height - 10 - length;
+  if (Number.isNaN(length)) {                                                     //sets if statement for if the length input is not a number
+    alert("Your input is not a number.");                                         //will alert the input is not a number
+  } else if ((length * 5 + 10) > 1023 || (length * 5 + 10) > 511) {               //otherwise ((length * 5 + 10) > 1023 || (length * 5 + 10) > 511) then...
+    alert("The pyramid will not fit on the canvas.");                             //will alert that the pyramid will not fit on the canvas
+  } else {                                                                        //otherwise...
+    let x = 10;                                                                   //sets x to 10
+    let y = c.height - 10 - length;                                               //sets y to c.height - 10 - length
 
-    let offset = 0;
-    for (let n = 0; n < 5; n++) {
-      for (let o = 0; o < 5 - n; o++) {
-        ctx.strokeRect(x + offset, y, length, length);
-        offset = offset + length;
+    let offset = 0;                                                               //sets offset to 0
+    for (let n = 0; n < 5; n++) {                                                 //continues loop for (let n = 0; n < 5; n++)
+      for (let o = 0; o < 5 - n; o++) {                                           //continues loop for (let o = 0; o < 5 - n; o++)
+        ctx.strokeRect(x + offset, y, length, length);                            //sets dimensions for boxes to (x + offset, y, length, length)
+        offset = offset + length;                                                 //offset set to offset + length
       }
 
-      x = x + Math.floor(length / 2);
-      y = y - length;
-      offset = 0;
+      x = x + Math.floor(length / 2);                                             //sets x to x + Math.floor(length / 2)
+      y = y - length;                                                             //sets y to y - length
+      offset = 0;                                                                 //sets offset to 0
     }
   }
 }
