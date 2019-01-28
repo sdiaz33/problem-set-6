@@ -2,49 +2,49 @@
  * Hello. SOLUTION.
  */
 
-function sayHello() {
-  let c = document.getElementById("canvas1");
-  let ctx = c.getContext("2d");
+function sayHello() {                                                               //declares sayHello function
+  let c = document.getElementById("canvas1");                                       //sets variable c to be printed to the console
+  let ctx = c.getContext("2d");                                                     //sets it to be a drawing
 
-  ctx.clearRect(0, 0, c.width, c.height);
-  ctx.font = "48px sans-serif";
-  ctx.strokeText("Hello, World!", 10, 50);
+  ctx.clearRect(0, 0, c.width, c.height);                                           //sets the words with shape of rectangle to be printed
+  ctx.font = "48px sans-serif";                                                     //sets font to "48px sans-serif"
+  ctx.strokeText("Hello, World!", 10, 50);                                          //sets specifics to what the text will say "Hello, world!" and specific heiht and width measurements
 }
 
 /*
  * Rectangle. SOLUTION.
  */
 
-function drawRectangle() {
-  let height = Number(prompt("Height: "));
-  let width = Number(prompt("Width: "));
-  let x = Number(prompt("X: "));
-  let y = Number(prompt("Y: "));
+function drawRectangle() {                                                          //declares drawRectangle function
+  let height = Number(prompt("Height: "));                                          //prompts user to enter a number for height and will save that input as variable height
+  let width = Number(prompt("Width: "));                                            //prompts user to enter a number for width and will save that input as variable width
+  let x = Number(prompt("X: "));                                                    //prompts user to enter a number for x and will save that input as variable x
+  let y = Number(prompt("Y: "));                                                    //prompts user to enter a number for y and will save that input as variable y
 
-  let c = document.getElementById("canvas2");
-  let ctx = c.getContext("2d");
-  ctx.clearRect(0, 0, c.width, c.height);
+  let c = document.getElementById("canvas2");                                       //sets variable c to be printed to the console
+  let ctx = c.getContext("2d");                                                     //sets it to be a drawing
+  ctx.clearRect(0, 0, c.width, c.height);                                           //sets the shape of rectangle to be printed
 
-  if (Number.isNaN(height) || Number.isNaN(width) || Number.isNaN(x) || Number.isNaN(y)) {
-    alert("One of your inputs is not a number.");
-  } else if (width > 1023) {
-    alert("The rectangle will not fit on the canvas.");
-  } else if (width < 1) {
-    alert("Your width is too small.");
-  } else if (height > 511) {
-    alert("The rectangle will not fit on the canvas.");
-  } else if (height < 1) {
-    alert("Your height is too small.");
-  } else if ((width + x) > 1023) {
-    alert("The rectangle will not fit on the canvas.");
-  } else if (x < 5) {
-    alert("Your x-coordinate is too small.");
-  } else if ((height + y) > 511) {
-    alert("The rectangle will not fit on the canvas.");
-  } else if (y < 5) {
-    alert("Your y-coordinate is too small.");
-  } else {
-    ctx.strokeRect(x, y, width, height);
+  if (Number.isNaN(height) || Number.isNaN(width) || Number.isNaN(x) || Number.isNaN(y)) {    //sets if statement for if one of the input are not a number
+    alert("One of your inputs is not a number.");                                             //will alert one of the inputs is not a number
+  } else if (width > 1023) {                                                                  //says width cannot be larger than 1023
+    alert("The rectangle will not fit on the canvas.");                                       //will alert the rectangle will not fit on the canvas
+  } else if (width < 1) {                                                                     //says width cannot be <1
+    alert("Your width is too small.");                                                        //will alert the width input is too small
+  } else if (height > 511) {                                                                  //says height cannot be >511
+    alert("The rectangle will not fit on the canvas.");                                       //will alert the rectangle will not fit on the canvas
+  } else if (height < 1) {                                                                    // says heiht cannot be <1
+    alert("Your height is too small.");                                                       //will alert height is too small
+  } else if ((width + x) > 1023) {                                                            // says width+x cannot be >1023
+    alert("The rectangle will not fit on the canvas.");                                       //will alert the rectangle will not fit on the canvas
+  } else if (x < 5) {                                                                         // says x cannot be <5
+    alert("Your x-coordinate is too small.");                                                 //will alert that the y-coordinate is too small
+  } else if ((height + y) > 511) {                                                            //says height+y cannot be > 511
+    alert("The rectangle will not fit on the canvas.");                                       //will alert the rectangle will not fit on the canvas
+  } else if (y < 5) {                                                                         //says y cannot be <5
+    alert("Your y-coordinate is too small.");                                                 // says y-coordinate is too small
+  } else {                                                                                    // if all of these condition are satified it does the next line
+    ctx.strokeRect(x, y, width, height);                                                      //prints x and y as 0 and height and width
   }
 }
 
@@ -52,24 +52,24 @@ function drawRectangle() {
  * Color. SOLUTION.
  */
 
-function drawColoredRectangle() {
-  let c = document.getElementById("canvas3");
-  let ctx = c.getContext("2d");
-  ctx.clearRect(0, 0, c.width, c.height);
+function drawColoredRectangle() {                                                   //declares drawColoredRectanle function
+  let c = document.getElementById("canvas3");                                       //sets variable c to be printed to the console
+  let ctx = c.getContext("2d");                                                     //sets it to be a drawing
+  ctx.clearRect(0, 0, c.width, c.height);                                           //sets the shape of rectangle to be printed
+  
+  let color = prompt("Color: ");                                                    //prompts user to enter a color
+  if (color === "black"  ||                                                         //if statement set to only accept black or....
+      color === "blue"   ||                                                         //blue or....
+      color === "green"  ||                                                         //green or...
+      color === "orange" ||                                                         //orange or...
+      color === "purple" ||                                                         //purple or...
+      color === "red"    ||                                                         //red or...
+      color === "yellow") {                                                         //yellow 
 
-  let color = prompt("Color: ");
-  if (color === "black"  ||
-      color === "blue"   ||
-      color === "green"  ||
-      color === "orange" ||
-      color === "purple" ||
-      color === "red"    ||
-      color === "yellow") {
-
-    ctx.fillStyle = color;
-    ctx.fillRect(10, 10, 100, 50);
-  } else {
-    alert(color + " is not a supported color.");
+    ctx.fillStyle = color;                                                          //will fill redctangle with one of the allowed colors
+    ctx.fillRect(10, 10, 100, 50);                                                  //sets dimensions for rectangle
+  } else {                                                                          //if a not allowed color is inputed it does not line
+    alert(color + " is not a supported color.");                                    //alerts user that color inputed is not a supported color
   }
 }
 
@@ -77,44 +77,44 @@ function drawColoredRectangle() {
  * Triangle. SOLUTION.
  */
 
-function drawTriangle() {
-  let c = document.getElementById("canvas4");
-  let ctx = c.getContext("2d");
-  ctx.clearRect(0, 0, c.width, c.height);
+function drawTriangle() {                                                           //declares drawTriangle function
+  let c = document.getElementById("canvas4");                                       //sets variable c to be printed to the console
+  let ctx = c.getContext("2d");                                                     //sets it to be a drawing
+  ctx.clearRect(0, 0, c.width, c.height);                                           //sets the shape of rectangle to be printed
 
-  let s1 = Number(prompt("Side 1: "));
-  let s2 = Number(prompt("Side 2: "));
-  let s3 = Number(prompt("Side 3: "));
+  let s1 = Number(prompt("Side 1: "));                                              //prompts user to enter a number for side 1 and saves input as variable s1
+  let s2 = Number(prompt("Side 2: "));                                              //prompts user to enter a number for side 2 and saves input as variable s2
+  let s3 = Number(prompt("Side 3: "));                                              //prompts user to enter a number for side 3 and saves input as variable s3
 
-  if (Number.isNaN(s1) || Number.isNaN(s2) || Number.isNaN(s3)) {
-    alert("One of your inputs is not a number.");
-  } else if (((s1 + s2) > s3) && ((s1 + s3) > s2) && ((s2 + s3) > s1)) {
-      let side1 = Math.min(s1, s2, s3);
-      let side3 = Math.max(s1, s2, s3);
-      let side2 = (s1 + s2 + s3) - side1 - side3;
+  if (Number.isNaN(s1) || Number.isNaN(s2) || Number.isNaN(s3)) {                   //sets an if statement for if any of the side inputs is not a number
+    alert("One of your inputs is not a number.");                                   //then will alert that one of the inputs is not a number
+  } else if (((s1 + s2) > s3) && ((s1 + s3) > s2) && ((s2 + s3) > s1)) {            //if (((s1 + s2) > s3) && ((s1 + s3) > s2) && ((s2 + s3) > s1)) then it does the next few lines
+      let side1 = Math.min(s1, s2, s3);                                             //will then declare side1 as Math.min(s1, s2, s3)
+      let side3 = Math.max(s1, s2, s3);                                             //will then declare side3 as Math.max(s1, s2, s3)
+      let side2 = (s1 + s2 + s3) - side1 - side3;                                   //will then declare side2 as (s1 + s2 + s3) - side1 - side3
 
-      if (((side1 * side1) + (side2 * side2)) === (side3 * side3)) {
-        let x = 10;
-        let y = 10;
+      if (((side1 * side1) + (side2 * side2)) === (side3 * side3)) {                //if (((side1 * side1) + (side2 * side2)) === (side3 * side3)) then it will do the next two lines
+        let x = 10;                                                                 //will then declare x as 10
+        let y = 10;                                                                 //will then declare y as 10 
 
-        if ((y + side1) > 511 || (x + side2) > 1023) {
-          alert("The triangle will not fit on the canvas.");
-        } else {
-          ctx.beginPath();
+        if ((y + side1) > 511 || (x + side2) > 1023) {                              //if ((y + side1) > 511 || (x + side2) > 1023) then will do next lines
+          alert("The triangle will not fit on the canvas.");                        //then will alert that the triangle will not fit on the canvas
+        } else {                                                                    //otherwise it will do ...
+          ctx.beginPath();                                                          //start the path to make a triangle
 
-          ctx.moveTo(x, y);
-          ctx.lineTo(x, y + side1);
-          ctx.lineTo(x + side2, y + side1);
-          ctx.lineTo(x, y);
+          ctx.moveTo(x, y);                                                         //makes path for triangle by startin at(x,y)
+          ctx.lineTo(x, y + side1);                                                 //makes path for triangle moves it to (x,y+side1)
+          ctx.lineTo(x + side2, y + side1);                                         //makes path for triangle moves it to (x+side,y+side1)
+          ctx.lineTo(x, y);                                                         //makes path for triangle moves it to (x,y)
 
-          ctx.closePath();
+          ctx.closePath();                                                          //closes path
           ctx.stroke();
         }
-      } else {
-        alert("This is not a valid right triangle.");
+      } else {                                                                      //otherside it...
+        alert("This is not a valid right triangle.");                               //alerts that it is not a valid triangle
       }
-  } else {
-    alert("That is not a valid right triangle.");
+  } else {                                                                          //otherside it...
+    alert("That is not a valid right triangle.");                                   //alerts that it is not a valid triangle
   }
 }
 
@@ -123,33 +123,33 @@ function drawTriangle() {
  */
 
 function drawSmileyFace() {
-  let c = document.getElementById("canvas5");
-  let ctx = c.getContext("2d");
-  ctx.clearRect(0, 0, c.width, c.height);
+  let c = document.getElementById("canvas4");                                       //sets variable c to be printed to the console
+  let ctx = c.getContext("2d");                                                     //sets it to be a drawing
+  ctx.clearRect(0, 0, c.width, c.height);                                           //sets the shape of rectangle to be printed
 
-  let radius = Number(prompt("Radius: "));
+  let radius = Number(prompt("Radius: "));                                          //prompts user to enter a number for radius and sets input as variable radius
 
-  if (Number.isNaN(radius)) {
-    alert("Your input is not a number.");
-  } else if (radius < 1) {
-    alert("Your radius is too small.");
-  } else if ((radius * 2 + 10) > 511) {
-    alert("The smiley face will not fit on the canvas.");
-  } else {
-    let faceX = radius + 10;
-    let faceY = radius + 10;
+  if (Number.isNaN(radius)) {                                                       //sets an if statement for if radius is not a number
+    alert("Your input is not a number.");                                           //alerts that the input is not a number
+  } else if (radius < 1) {                                                          // otherwise then if radius<1 then...
+    alert("Your radius is too small.");                                             //will alert the radius is too small
+  } else if ((radius * 2 + 10) > 511) {                                             // otherwise then if (radius * 2 + 10) > 511 then...
+    alert("The smiley face will not fit on the canvas.");                           //will alert the smiley face will not fit on the canvas
+  } else {                                                                          // otherwise then...
+    let faceX = radius + 10;                                                        //will set faceX as radius+10
+    let faceY = radius + 10;                                                        //will set faceY as radius+10
 
-    ctx.beginPath();
+    ctx.beginPath();                                                                           //starts path to draw
 
-    ctx.arc(faceX, faceY, radius, 0, Math.PI * 2, true);  // draw the face
-    ctx.moveTo(faceX + radius - radius * 0.3, faceY);
-    ctx.arc(faceX, faceY, radius * 0.7, 0, Math.PI, false); // draw the mouth
-    ctx.moveTo(faceX - radius * 0.35 + radius * 0.1, faceY - radius * 0.5);
-    ctx.arc(faceX - radius * 0.35, faceY - radius * 0.5, radius * 0.1, 0, Math.PI * 2, true); // left eye
-    ctx.moveTo(faceX + radius * 0.35 + radius * 0.1, faceY - radius * 0.5);
-    ctx.arc(faceX + radius * 0.35, faceY - radius * 0.5, radius * 0.1, 0, Math.PI * 2, true);  // right eye
+    ctx.arc(faceX, faceY, radius, 0, Math.PI * 2, true);                                       //draws the face 
+    ctx.moveTo(faceX + radius - radius * 0.3, faceY);                                          //sets a radius
+    ctx.arc(faceX, faceY, radius * 0.7, 0, Math.PI, false);                                    //draw the mouth
+    ctx.moveTo(faceX - radius * 0.35 + radius * 0.1, faceY - radius * 0.5);                    //sets a radius
+    ctx.arc(faceX - radius * 0.35, faceY - radius * 0.5, radius * 0.1, 0, Math.PI * 2, true);  //left eye
+    ctx.moveTo(faceX + radius * 0.35 + radius * 0.1, faceY - radius * 0.5);                    //sets a radius
+    ctx.arc(faceX + radius * 0.35, faceY - radius * 0.5, radius * 0.1, 0, Math.PI * 2, true);  //right eye
 
-    ctx.closePath();
+    ctx.closePath();                                                                           //closes path
     ctx.stroke();
   }
 }
